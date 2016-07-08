@@ -1,0 +1,64 @@
+<style>
+.inline{
+  display:inline-block;
+  height:50px;
+  width:19.5%;
+}
+.inline2{
+  display:inline-block;
+  height:50px;
+  width:100%;
+}
+.title{
+  font-size:10px;
+  color:#797979;
+}
+</style>
+<%@neodin.each do |n|%>
+<div style="border-top:1px solid;">
+  <div class='inline'>
+    <span class="title">indate</span><br>
+    <%=n.in_date.strftime("%Y%m%d") if !n.in_date.nil?%>
+  </div>
+  <div class='inline'>
+    <span class="title">outdate</span><br>
+    <%=n.out_date.strftime("%Y%m%d") if !n.out_date.nil?%>
+  </div>
+  <div class='inline'>
+    <span class="title">동물병원</span><br>
+    <%=n.hospital%>
+  </div>
+  <div class='inline'>
+    <span class="title">환자명</span><br>
+    <%=n.patient_name%>
+  </div>
+  <div class='inline'>
+    <span class="title">종명</span><br>
+    <%=n.species%>
+  </div>
+  <div class='inline'>
+    <span class="title">품종</span><br>
+    <%=n.breeds%>
+  </div>
+  <div class='inline'>
+    <span class="title">성별</span><br>
+    <%=n.sex%>
+  </div>
+  <div class='inline'>
+    <span class="title">나이</span><br>
+    <%=n.age%>
+  </div>
+  <div class='inline'>
+    <span class="title">부위</span><br>
+    <%=n.site%>
+  </div>
+  <div class='inline2'>
+    <span class="title">특징</span><br>
+    <%=n.macro%>
+  </div>
+  <div style="background:orange; border-radius:5px; text-align:center; height:30px; line-height:30px;">
+    <a href="/paper/neodin_detail/<%=n.id%>">수정</a>
+  </div>
+</div>
+<%end%>
+

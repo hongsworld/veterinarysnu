@@ -1,0 +1,31 @@
+<h1>Paper#neodin</h1>
+
+<%= form_tag("/paper/neodin_process", method: "post") do %>
+	도착날짜 : <br>
+	<input name="in_date" value="<%=@in_date%>"> <br>
+	소견 나가는날짜 : <br>
+	<input name="out_date" value="<%=@out_date%>"> <br>
+	병원명 : <br>
+	<input name="hospital"> <br>
+	환자명 : <br>
+	<input name="patient_name"> <br>
+	종 : <br>
+	<input name="species"> <br>
+	품종명 : <br>
+	<input name="breeds"> <br>
+	성별 : <br>
+	<input type="radio" name="sex" value="수" checked> Male<br>
+	<input type="radio" name="sex" value="중성화 수"> Male Castrated<br>
+	<input type="radio" name="sex" value="암"> Female <br>
+	<input type="radio" name="sex" value="중성화 암"> Female Spayed<br>
+	<input type="radio" name="sex" value="미기재"> 미기재<br>
+	나이 : <br>
+	<input name="age"> <br>
+	병변위치 : <br>
+	<input name="site"> <br>
+	육안소견 : <br>
+	<input name="macro"> <br>
+	<input type="submit"> <br>
+	
+
+<%end%>
