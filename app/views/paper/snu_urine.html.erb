@@ -1,0 +1,39 @@
+<h1>Paper#snu</h1>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<%= form_tag("/paper/snu_urine_process", method: "post") do %>
+이름 : <br>
+<input id="patient_name" name="patient_name"> <br>
+ID : <br>
+<input name="patient_id"> <br>
+종 : <br>
+<input name="species"> <br>
+품종 : <br>
+<input name="breeds"> <br>
+성별 : <br>
+<input type="radio" name="sex" value="M" checked> Male<br>
+<input type="radio" name="sex" value="MC"> Male Castrated<br>
+<input type="radio" name="sex" value="F"> Female <br>
+<input type="radio" name="sex" value="FS"> Female Spayed<br>
+<input type="radio" name="sex" value="미기재"> 미기재<br>
+나이 : <br>
+<input name="age"> <br>
+색상 : <br>
+<input name="color"> <br>
+탁도 : <br>
+<input name="turbidity"> <br>
+
+
+가소견 : <br>
+<% type_arr = ["nrf", "화생", "증생", "결정", "화생 증생", "방광염", "세균성 방광염", "혈뇨"]%>
+<% type_arr.each_with_index do |x,i|%>
+<input type="radio" name="dx_type" value="<%=i%>"><%=x%><br>
+<% end %>
+
+<input type="submit"> <br>
+<% end %>
+
+
+<script>
+$("#patient_name").focus()
+</script>

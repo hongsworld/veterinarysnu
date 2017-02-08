@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160313204029) do
+ActiveRecord::Schema.define(version: 20170208114604) do
 
   create_table "neodins", force: :cascade do |t|
     t.datetime "in_date"
@@ -24,6 +24,35 @@ ActiveRecord::Schema.define(version: 20160313204029) do
     t.string   "age"
     t.string   "site"
     t.string   "macro"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "snu_cytologies", force: :cascade do |t|
+    t.datetime "date"
+    t.string   "patient_name"
+    t.string   "patient_id"
+    t.string   "species"
+    t.string   "breeds"
+    t.string   "sex"
+    t.string   "age"
+    t.string   "lesion"
+    t.string   "dx"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "snu_urines", force: :cascade do |t|
+    t.datetime "date"
+    t.string   "patient_name"
+    t.string   "patient_id"
+    t.string   "species"
+    t.string   "breeds"
+    t.string   "sex"
+    t.string   "age"
+    t.string   "color"
+    t.string   "turbidity"
+    t.string   "dx_type"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

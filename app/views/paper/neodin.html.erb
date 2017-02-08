@@ -1,12 +1,12 @@
 <h1>Paper#neodin</h1>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <%= form_tag("/paper/neodin_process", method: "post") do %>
 	도착날짜 : <br>
 	<input name="in_date" value="<%=@in_date%>"> <br>
 	소견 나가는날짜 : <br>
 	<input name="out_date" value="<%=@out_date%>"> <br>
 	병원명 : <br>
-	<input name="hospital"> <br>
+	<input name="hospital" id="hospital"> <br>
 	환자명 : <br>
 	<input name="patient_name"> <br>
 	종 : <br>
@@ -29,3 +29,6 @@
 	
 
 <%end%>
+<script>
+$("#hospital").focus()
+</script>
