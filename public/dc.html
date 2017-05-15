@@ -1,0 +1,265 @@
+<html>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' charset='utf-8'>
+<script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="tappable.js"></script>
+<script type="text/javascript" src="application.js"></script>
+<style>
+*{
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+
+}
+html{
+	background:black;
+}
+.counter{
+	height:90%;
+}
+.row{
+	width:100%;
+	height:33.3%;
+	border: 1px solid #fff;	
+}
+.text{
+	color:white;
+	padding: 10px 0 0 10px;
+	height:10%;
+}
+.tappable-active{
+	background:white;
+}
+.tappable-active div{
+	color:black;
+}
+.count{
+	color:white;
+	height:90%;
+	text-align:center;
+	font-size:70px;
+	
+}	
+.column{
+	float:left;
+	width:50%;
+	height:100%;
+	border: 1px solid #fff;
+}
+.total{
+	height:8%;
+	width:100%;
+}
+.text-total{
+	color:white;
+	text-align:center;
+}
+.count-total{
+	color:white;
+	text-align:center;
+	font-size:20px;
+}
+.clearboth{
+	clear:both;
+}
+</style>
+<div class="total">
+	<div class="text-total">
+		Total
+	</div>
+	<div class="count-total" id="total">
+		0
+	</div>
+	<div class="clearboth">
+	</div>
+
+</div>
+<div class="counter">
+	<div class="row">
+		<div id = "neu">
+			<div class="text">
+				Neu
+			</div>
+			<div class="count">
+				0
+			</div>
+			<div class="clearboth">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div id="band" class="column">
+			<div class="text">
+				Band
+			</div>
+			<div class="count">
+				0
+			</div>
+			<div class="clearboth">
+			</div>
+		</div>
+		<div id = "lym"class="column">
+			<div class="text">
+				Lym
+			</div>
+			<div class="count">
+				0
+			</div>
+			<div class="clearboth">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div  id= "mono" class="column">
+			<div class="text">
+				Mono
+			</div>
+			<div class="count">
+				0
+			</div>
+			<div class="clearboth">
+			</div>
+		</div>
+		<div id="eos" class="column">
+			<div class="text">
+				Eos
+			</div>
+			<div class="count">
+				0
+			</div>
+			<div class="clearboth">
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var neu = 0
+	var band = 0
+	var lym = 0
+	var mono = 0
+	var eos = 0
+	var total = 0
+	var gogo = false
+	$(document).ready(function(){
+
+		eventBtn(
+			"#neu",
+			"on",
+			function() {
+				if( (total < 100) ||  (gogo == true) ) {
+					neu += 1
+					$("#neu").children(".count").text(neu)
+					$("#band").children(".count").text(band)
+					$("#lym").children(".count").text(lym)	
+					$("#mono").children(".count").text(mono)
+					$("#eos").children(".count").text(eos)
+					total = (neu + lym + mono + eos + band)
+					$("#total").text(total)
+				} else {
+					alert("total count is over 100!")
+					if (confirm("continue?")){
+						gogo = true
+					} else {
+						
+					}
+				}
+			}
+		);
+
+		eventBtn(
+			"#band",
+			"on",
+			function() {
+				if( (total < 100) ||  (gogo == true) ) {
+					band += 1
+					$("#neu").children(".count").text(neu)
+					$("#band").children(".count").text(band)
+					$("#lym").children(".count").text(lym)	
+					$("#mono").children(".count").text(mono)
+					$("#eos").children(".count").text(eos)
+					total = (neu + lym + mono + eos + band)
+					$("#total").text(total)
+				} else {
+					alert("total count is over 100!")
+					if (confirm("continue?")){
+						gogo = true
+					} else {
+						
+					}
+				}
+			}
+		);
+
+		eventBtn(
+			"#lym",
+			"on",
+			function() {
+				if( (total < 100) ||  (gogo == true) ) {
+					lym += 1
+					$("#neu").children(".count").text(neu)
+					$("#band").children(".count").text(band)
+					$("#lym").children(".count").text(lym)	
+					$("#mono").children(".count").text(mono)
+					$("#eos").children(".count").text(eos)
+					total = (neu + lym + mono + eos + band)
+					$("#total").text(total)
+				} else {
+					alert("total count is over 100!")
+					if (confirm("continue?")){
+						gogo = true
+					} else {
+						
+					}
+				}
+			}
+		);
+
+		eventBtn(
+			"#mono",
+			"on",
+			function() {
+				if( (total < 100) ||  (gogo == true) ) {
+					mono += 1
+					$("#neu").children(".count").text(neu)
+					$("#band").children(".count").text(band)
+					$("#lym").children(".count").text(lym)	
+					$("#mono").children(".count").text(mono)
+					$("#eos").children(".count").text(eos)
+					total = (neu + lym + mono + eos + band)
+					$("#total").text(total)
+				} else {
+					alert("total count is over 100!")
+					if (confirm("continue?")){
+						gogo = true
+					} else {
+						
+					}
+				}
+			}
+		);
+
+		eventBtn(
+			"#eos",
+			"on",
+			function() {
+				if( (total < 100) ||  (gogo == true) ) {
+					eos += 1
+					$("#neu").children(".count").text(neu)
+					$("#band").children(".count").text(band)
+					$("#lym").children(".count").text(lym)	
+					$("#mono").children(".count").text(mono)
+					$("#eos").children(".count").text(eos)
+					total = (neu + lym + mono + eos + band)
+					$("#total").text(total)
+				} else {
+					alert("total count is over 100!")
+					if (confirm("continue?")){
+						gogo = true
+					} else {
+						
+					}
+				}
+			}
+		);
+	});
+</script>
+</html>

@@ -39,7 +39,7 @@ class PaperController < ApplicationController
     lesion = params[:lesion]
     dx = params[:dx]
 
-    `mkdir -p  '/home/hongs/Dropbox/임상병리 현미경 사진/SAMC/#{Time.now.strftime("%Y")}/#{date[2..3]}월/세포학/(#{date})#{patient_id}_#{patient_name}_#{lesion}'`
+    `mkdir -p  '/home/hongs/Dropbox/SNU VMTH CP의 팀 폴더/임상병리 현미경 사진/SAMC/#{Time.now.strftime("%Y")}/#{date[2..3]}월/세포학/(#{date})#{patient_id}_#{patient_name}_#{lesion}'`
     sleep(0.5)
 
 	doc = Docx::Document.open('/home/hongs/SNUVMTH_CP/cytology_standard.docx')
@@ -53,10 +53,10 @@ class PaperController < ApplicationController
 	doc.bookmarks['lesion'].insert_text_after(lesion)
 	doc.bookmarks['dx'].insert_text_after(dx)
 
-        `mkdir -p '/home/hongs/Dropbox/SNUVMTH/#{Time.now.strftime("%Y")}/#{date[2..3]}월/세포학'`
+        `mkdir -p '/home/hongs/Dropbox/SNU VMTH CP의 팀 폴더/SNUVMTH/#{Time.now.strftime("%Y")}/#{date[2..3]}월/세포학'`
         sleep(0.5)
 
-        doc.save("/home/hongs/Dropbox/SNUVMTH/#{Time.now.strftime("%Y")}/#{date[2..3]}월/세포학/(#{date})#{patient_id}_#{patient_name}_#{lesion}_#{dx}.docx")
+        doc.save("/home/hongs/Dropbox/SNU VMTH CP의 팀 폴더/SNUVMTH/#{Time.now.strftime("%Y")}/#{date[2..3]}월/세포학/(#{date})#{patient_id}_#{patient_name}_#{lesion}_#{dx}.docx")
 
 
 
@@ -94,7 +94,7 @@ class PaperController < ApplicationController
     type_arr = ["nrf", "화생", "증생", "결정", "화생 증생", "방광염", "세균성 방광염", "혈뇨"]
      
 
-    `mkdir -p  '/home/hongs/Dropbox/임상병리 현미경 사진/SAMC/#{Time.now.strftime("%Y")}/#{date[2..3]}월/요침사/(#{date})#{patient_id}_#{patient_name}_요침사'`
+    `mkdir -p  '/home/hongs/Dropbox/SNU VMTH CP의 팀 폴더/임상병리 현미경 사진/SAMC/#{Time.now.strftime("%Y")}/#{date[2..3]}월/요침사/(#{date})#{patient_id}_#{patient_name}_요침사'`
     sleep(0.5)
 
 	doc = Docx::Document.open('/home/hongs/SNUVMTH_CP/urine_standard.docx')
@@ -132,7 +132,7 @@ class PaperController < ApplicationController
 	elsif dx_type == "5" # 방광염
 		doc.bookmarks['microscopic_finding'].insert_text_after("호중구가 ~~ 관찰되었습니다. 호중구의 핵은 ~~ 관찰되었습니다. 배경에는 무정형의 과립이 ~~ 관찰되며 과립원주는 ~~ 관찰되었습니다. 적혈구의 개재는 ~~ 관찰되었습니다. ")
 		doc.bookmarks['morphologic_diagnosis'].insert_text_after("Suspected to neutrophilic cystitis")
-		doc.bookmarks['comments'].insert_text_after("침사물의 세포학적 검사 결과, 호중구가 주종으로 관찰되는 바, 호중구성 방광염의 가능성이 고려됩니다. 본 증례의 세포학적 검사상 감염체는 확인되지 않았으나, 호중구성 방광염이 고려되는 바, 세균감염의 배제를 위해 배양검사를 추천드리며 필요시 항생제 감수성 검사를 진행하시길 바랍니다.  임상적 의의를 가질만한 세포학적 증거는 관찰되지 않았습니다.")
+		doc.bookmarks['comments'].insert_text_after("침사물의 세포학적 검사 결과, 호중구가 주종으로 관찰되는 바, 호중구성 방광염의 가능성이 고려됩니다. 본 증례의 세포학적 검사상 감염체는 확인되지 않았으나, 호중구성 방광염이 고려되는 바, 세균감염의 배제를 위해 배양검사를 추천드리며 필요시 항생제 감수성 검사를 진행하시길 바랍니다.")
 	elsif dx_type == "6" # 세균성 방광염
 		doc.bookmarks['microscopic_finding'].insert_text_after("호중구가 ~~ 관찰되며 배경 및 호중구 내에 ~~균이 ~~ 관찰되었습니다. 호중구의 핵은 ~~ 관찰되었습니다. 배경에는 무정형의 과립이 ~~ 관찰되며 과립원주는 ~~ 관찰되었습니다. 적혈구의 개재는 ~~ 관찰되었습니다.")
 		doc.bookmarks['morphologic_diagnosis'].insert_text_after("Bacterial cystitis")
@@ -140,14 +140,14 @@ class PaperController < ApplicationController
 	elsif dx_type == "7" # 혈뇨
 		doc.bookmarks['microscopic_finding'].insert_text_after("개별탈락된 방광이행상피세포가 ~~ 관찰되었습니다. 방광이행상피세포의 세포대소부동은 ~~, 핵 대소부동은 ~~ ㄱ로 관찰되었습니다. 배경에는 무정형의 과립이 ~~, 과립원주는 ~~ 관찰되며, 적혈구는 고배율상 ~~~개 정도로 관찰되었습니다.")
 		doc.bookmarks['morphologic_diagnosis'].insert_text_after("Hematuria")
-		doc.bookmarks['comments'].insert_text_after("~~~의 적혈구 개재가 관찰되는 혈뇨 소견입니다. 혈뇨의 경우 만성적인 방광벽에 대한 자극의 경롸로 나타날 수 있습니다. 추가적으로, 물리적인 외상 및 응고계 부전으로 인해서 발생할수 있으므로, 환자의 임상정황 및 병력을 종합적으로 접근하시길 추천드립니다. ")
+		doc.bookmarks['comments'].insert_text_after("~~~의 적혈구 개재가 관찰되는 혈뇨 소견입니다. 혈뇨의 경우 만성적인 방광벽에 대한 자극의 결과로 나타날 수 있습니다. 추가적으로, 물리적인 외상 및 응고계 부전, 그리고 침사과정상의 출혈으로 인해서 발생할수 있으므로, 환자의 임상정황 및 병력을 종합적으로 접근하시길 추천드리며 침사과정상의 출혈 여부를 확인하시길 바랍니다. ")
 	else 
 	end
 
-        `mkdir -p '/home/hongs/Dropbox/SNUVMTH/#{Time.now.strftime("%Y")}/#{date[2..3]}월/요침사'`
+        `mkdir -p '/home/hongs/Dropbox/SNU VMTH CP의 팀 폴더/SNUVMTH/#{Time.now.strftime("%Y")}/#{date[2..3]}월/요침사'`
         sleep(0.5)
 
-        doc.save("/home/hongs/Dropbox/SNUVMTH/#{Time.now.strftime("%Y")}/#{date[2..3]}월/요침사/(#{date})#{patient_id}_#{patient_name}_요침사_#{type_arr[dx_type.to_i]}.docx")
+        doc.save("/home/hongs/Dropbox/SNU VMTH CP의 팀 폴더/SNUVMTH/#{Time.now.strftime("%Y")}/#{date[2..3]}월/요침사/(#{date})#{patient_id}_#{patient_name}_요침사_#{type_arr[dx_type.to_i]}.docx")
 
 
 
@@ -190,7 +190,7 @@ class PaperController < ApplicationController
     macro = params[:macro]
 
 
-    `mkdir -p '/home/hongs/Dropbox/Neodin/Microscopic_picture/#{indate[0..3]}년/#{indate[4..5]}월/#{indate[6..7]}일/#{indate}_#{hospital}_#{patient_name}_#{species}_#{breeds}_#{sex}_#{age}_#{site}'`
+    `mkdir -p '/home/hongs/Dropbox/SNU VMTH CP의 팀 폴더/Neodin/Microscopic_picture/#{indate[0..3]}년/#{indate[4..5]}월/#{indate[6..7]}일/#{indate}_#{hospital}_#{patient_name}_#{species}_#{breeds}_#{sex}_#{age}_#{site}'`
     sleep(0.5)
 
 	doc = Docx::Document.open('/home/hongs/SNUVMTH_CP/standard.docx')
@@ -206,10 +206,10 @@ class PaperController < ApplicationController
 	doc.bookmarks['gross_findings2'].insert_text_after(macro)
 	doc.bookmarks['morphologic_diagnosis'].insert_text_after("")
 	doc.bookmarks['comments'].insert_text_after("")
-        `mkdir -p '/home/hongs/Dropbox/Neodin/Opinion_paper/#{indate[0..3]}년/#{indate[4..5]}월/#{indate[6..7]}일'`
+        `mkdir -p '/home/hongs/Dropbox/SNU VMTH CP의 팀 폴더/Neodin/Opinion_paper/#{indate[0..3]}년/#{indate[4..5]}월/#{indate[6..7]}일'`
         sleep(0.5)
 
-	doc.save("/home/hongs/Dropbox/Neodin/Opinion_paper/#{indate[0..3]}년/#{indate[4..5]}월/#{indate[6..7]}일/#{indate[0..7]}_#{hospital}_#{patient_name}(#{species})_#{site}.docx")
+	doc.save("/home/hongs/Dropbox/SNU VMTH CP의 팀 폴더/Neodin/Opinion_paper/#{indate[0..3]}년/#{indate[4..5]}월/#{indate[6..7]}일/#{indate[0..7]}_#{hospital}_#{patient_name}(#{species})_#{site}.docx")
 
 
 
