@@ -41,6 +41,12 @@ class PaperController < ApplicationController
 
     `mkdir -p  '/home/hongs/Dropbox/SNU VMTH CP의 팀 폴더/임상병리 현미경 사진/SAMC/#{Time.now.strftime("%Y")}/#{date[2..3]}월/세포학/(#{date})#{patient_id}_#{patient_name}_#{lesion}'`
     sleep(0.5)
+	if !lesion.index(",").nil?
+		lesion_array = lesion.split(",")
+		lesion_array.each do |x|
+		    `mkdir -p  '/home/hongs/Dropbox/SNU VMTH CP의 팀 폴더/임상병리 현미경 사진/SAMC/#{Time.now.strftime("%Y")}/#{date[2..3]}월/세포학/(#{date})#{patient_id}_#{patient_name}_#{lesion}/#{x}'`
+		end
+	end
 
 	doc = Docx::Document.open('/home/hongs/SNUVMTH_CP/cytology_standard.docx')
 	doc.bookmarks['patient_id'].insert_text_after(patient_id)

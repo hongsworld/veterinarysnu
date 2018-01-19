@@ -1,14 +1,124 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>SNUVMTHCp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<style>
+div{
+text-align:justify;
+}
+</style> 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
 
-<%= yield %>
+    <title>Paper please, CLINPATH</title>
 
-</body>
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">ClinPath</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="http://veterinarysnu.cafe24.com/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/paper/snu_urine">Urine sediment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="/paper/neodin">Neodin cytology</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="/paper/neodin_list">Neodin list</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" id="search" >Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-12 col-md-12">
+          <p class="float-right d-md-none">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="jumbotron">
+            <h1>Paper, please!</h1>
+            <p>This is an expert system which supports writing examination references in department of Clinical Pathology, Veterinary Teaching Hospital, Seoul National University.  Automatically generated examination reference is located in ClinPath dropbox account(snuvmthcp@gmail.com). Please kindly notice that automatically generated examination reference DO NOT reflects opinion of system operator and all the users should be able to write examination references by one's self.</p>
+          </div>
+          <%= yield %>
+        </div><!--/span-->
+
+
+
+
+
+
+      <hr>
+
+    </main><!--/.container-->
+
+    <footer>
+      <p>&copy; Produced by hongs 2018</p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="offcanvas.js"></script>
+<script>
+$("#search").click(function(){
+	alert("Sorry, it is not developed!")
+});
+</script>
+  </body>
 </html>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

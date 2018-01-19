@@ -77,7 +77,7 @@ html{
 	<div class="row">
 		<div id = "rbc">
 			<div class="text">
-				NEU
+				RBC
 			</div>
 			<div class="count">
 				0
@@ -106,47 +106,39 @@ html{
 	var gogo = false
 	$(document).ready(function(){
 
-		eventBtn(
-			"#rbc",
-			"on",
-			function() {
-				if( (total < 1000) ||  (gogo == true) ) {
-					rbc += 1
-					$("#rbc").children(".count").text(rbc)
-					$("#retic").children(".count").text(retic)
-					total = (rbc + retic )
-					$("#total").text(total)
+		$("#rbc").bind('touchstart',function(e){
+			if( (total < 1000) ||  (gogo == true) ) {
+				rbc += 1
+				$("#rbc").children(".count").text(rbc)
+				$("#retic").children(".count").text(retic)
+				total = (rbc + retic )
+				$("#total").text(total)
+			} else {
+				alert("total count is over 1000!")
+				if (confirm("continue?")){
+					gogo = true
 				} else {
-					alert("total count is over 1000!")
-					if (confirm("continue?")){
-						gogo = true
-					} else {
-						
-					}
+					
 				}
 			}
-		);
+		});
 
-		eventBtn(
-			"#retic",
-			"on",
-			function() {
-				if( (total < 1000) ||  (gogo == true) ) {
-					retic += 1
-					$("#rbc").children(".count").text(rbc)
-					$("#retic").children(".count").text(retic)
-					total = (rbc + retic)
-					$("#total").text(total)
+		$("#retic").bind('touchstart',function(e){
+			if( (total < 1000) ||  (gogo == true) ) {
+				retic += 1
+				$("#rbc").children(".count").text(rbc)
+				$("#retic").children(".count").text(retic)
+				total = (rbc + retic)
+				$("#total").text(total)
+			} else {
+				alert("total count is over 1000!")
+				if (confirm("continue?")){
+					gogo = true
 				} else {
-					alert("total count is over 1000!")
-					if (confirm("continue?")){
-						gogo = true
-					} else {
-						
-					}
+					
 				}
 			}
-		);
+		});
 
 	});
 </script>
